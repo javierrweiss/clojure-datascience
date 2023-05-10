@@ -1,0 +1,8 @@
+Bootstrap: library
+From: behrica/clj-py-r/clj-py-r_base:1.5.1
+
+%post
+cp  /usr/local/bin/APserver $HOME
+# apt-get install ....
+# pip3 install ....
+# Rscript -e 'install.packages("....",repo="http://cran.rstudio.com/")'
