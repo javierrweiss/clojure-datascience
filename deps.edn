@@ -1,12 +1,10 @@
-{
- :mvn/repos {"clojars" {:url "https://repo.clojars.org/"}
+{:mvn/repos {"clojars" {:url "https://repo.clojars.org/"}
              "central" {:url "https://repo1.maven.org/maven2/"}
              "bedatadriven" {:url "https://nexus.bedatadriven.com/content/groups/public/"}}
 
  :paths ["src" "resources"]
 
- :deps {
-        org.clojure/clojure         {:mvn/version "1.10.3"}
+ :deps {org.clojure/clojure         {:mvn/version "1.10.3"}
         clj-python/libpython-clj    {:mvn/version "2.018"}
         scicloj/clojisr             {:mvn/version "1.0.0-BETA19"}
         scicloj/tablecloth          {:mvn/version "6.076"}
@@ -22,9 +20,10 @@
 
 
 
-        
 
- :aliases {
+
+ :aliases {:jdk-17 {:jvm-opts ["--add-modules" "jdk.incubator.foreign"
+                               "--enable-native-access=ALL-UNNAMED"]}
            :cider-clj {:extra-deps {cider/cider-nrepl {:mvn/version "0.27.2"}
                                     refactor-nrepl {:mvn/version "3.0.0-alpha13"}}
                        :main-opts ["-m" "nrepl.cmdline" "-b" "0.0.0.0" "-p" "12345"
