@@ -14,17 +14,17 @@
         behrica/libapl-clj          {:git/url "https://github.com/behrica/libapl-clj"
                                      :git/sha "f40e17a95eaab6f81417d315f8499be7141b813c"}
         ;; {:mvn/version "0.1.2-ALPHA-SNAPSHOT"}
-
-        io.github.nextjournal/clerk {:mvn/version "0.6.387"}}
-
-
-
-
-
+        com.github.seancorfield/next.jdbc {:mvn/version "1.3.883"}
+        com.github.seancorfield/honeysql {:mvn/version "2.4.1045"}
+        org.postgresql/postgresql {:mvn/version "42.6.0"}
+        com.zaxxer/HikariCP {:mvn/version "5.0.1"}
+        io.github.nextjournal/clerk {:mvn/version "0.6.387"}
+        hato/hato {:mvn/version "0.9.0"}
+        cheshire/cheshire {:mvn/version "5.11.0"}}
 
  :aliases {:jdk-17 {:jvm-opts ["--add-modules" "jdk.incubator.foreign"
                                "--enable-native-access=ALL-UNNAMED"]}
            :cider-clj {:extra-deps {cider/cider-nrepl {:mvn/version "0.27.2"}
-                                    refactor-nrepl {:mvn/version "3.0.0-alpha13"}}
+                                    refactor-nrepl/refactor-nrepl {:mvn/version "3.0.0-alpha13"}}
                        :main-opts ["-m" "nrepl.cmdline" "-b" "0.0.0.0" "-p" "12345"
                                    "--middleware" "[cider.nrepl/cider-middleware,refactor-nrepl.middleware/wrap-refactor]"]}}}

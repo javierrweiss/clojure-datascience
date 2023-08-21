@@ -1,4 +1,4 @@
-(ns try-py-R 
+(ns intro.try-py-R 
   (:require [clojisr.v1.r :as r]
             [tech.v3.dataset :as tc]))
 

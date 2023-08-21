@@ -6,14 +6,10 @@ ARG GROUP_ID=999
 
 RUN addgroup --gid $GROUP_ID user
 RUN adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID user
-
-RUn chown -R user:user /tmp/.m2/repository
+RUN chown -R user:user /tmp/.m2/repository
 USER user
 WORKDIR /home/user
-
-
-RUN cp /usr/local/bin/APserver /home/user
-
+# RUN cp /usr/local/bin/APserver /home/user
 # RUN apt-get install ....
-# RUN pip3 install ....
+RUN pip3 install cohere pylzma
 # RUN Rscript -e 'install.packages("....",repo="http://cran.rstudio.com/")'
