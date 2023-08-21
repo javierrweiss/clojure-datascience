@@ -2,6 +2,8 @@
   (:require [libpython-clj2.python :as py]
             [hato.client :as hc]))
 
+;; Si queremos usar el SDK para Python, debemos hacer lo siguiente:
+
 (require '[libpython-clj2.require :refer [require-python]]
          '[libpython-clj2.python :as py :refer [py. py.. py.-]])
 
@@ -25,7 +27,7 @@
 (-> (py/$a py-client embed xs)
     (py.- embeddings)) 
 
-;; También se puede usar la API de cohere directamente, sin tener que depender del SDK de Python ni pasar estructuras de datos de Python al método
+;; También se puede usar la API de Cohere directamente, sin tener que depender del SDK de Python ni pasar estructuras de datos de Python al método
 
 (def hato-client (hc/build-http-client {:connect-timeout 10000
                                         :redirect-policy :always
@@ -61,6 +63,20 @@
                                        hato-client)]
     (if (== status 200)
       (-> body :generations first :text)
+      (str "Hubo un error " status " \n Error: " (:message body)))))
+;; Falta probar
+(defn re-rankear 
+  "total_max_chunks (length of documents * max_chunks_per_doc)  debe ser menor a 10000"
+  [consulta docs-vec]
+  (let [{:keys [status body]} (hc/post "https://api.cohere.ai/v1/rerank"
+                                       (merge request-defaults {:form-params {:model "embed-multilingual-v2.0"
+                                                                              :query consulta
+                                                                              :documents docs-vec
+                                                                              :top_n 3
+                                                                              :return_documents true}})
+                                       hato-client)]
+    (if (== status 200)
+      (-> body :results)
       (str "Hubo un error " status " \n Error: " (:message body)))))
  
 (comment 

@@ -11,5 +11,5 @@ USER user
 WORKDIR /home/user
 # RUN cp /usr/local/bin/APserver /home/user
 # RUN apt-get install ....
-RUN pip3 install cohere pylzma
+RUN pip3 install cohere pylzma langchain 
 # RUN Rscript -e 'install.packages("....",repo="http://cran.rstudio.com/")'
