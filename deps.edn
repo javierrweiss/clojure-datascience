@@ -20,7 +20,9 @@
         com.zaxxer/HikariCP {:mvn/version "5.0.1"}
         io.github.nextjournal/clerk {:mvn/version "0.6.387"}
         hato/hato {:mvn/version "0.9.0"}
-        cheshire/cheshire {:mvn/version "5.11.0"}}
+        cheshire/cheshire {:mvn/version "5.11.0"}
+        danielsz/cohere-clojure {:git/url "https://github.com/danielsz/cohere-clojure"
+                                 :git/sha "57d34bea0e36f091f499ca27e8daeee2180c0ed1"}}
 
  :aliases {:jdk-17 {:jvm-opts ["--add-modules" "jdk.incubator.foreign"
                                "--enable-native-access=ALL-UNNAMED"]}
